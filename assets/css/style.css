@@ -1,0 +1,527 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+}
+
+/*Boot CSS*/
+html, body{
+    overflow-x: hidden;
+    height: 100%;
+}
+
+.text-center {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.center {
+    max-width: 1280px;
+    padding: 0 2%;
+    margin: 0 auto;
+}
+
+img {
+    width: 100%;
+    margin-top: 5px;
+}
+
+.w50 {
+    padding: 0 1%;
+    width: 50%;
+}
+
+.w33 {
+    padding: 0 1%;
+    width: 33%;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.clear {
+    clear: both;
+}
+
+/*Estilização do Site*/
+
+/*header*/
+header {
+    background-color: rgb(75, 221, 75);
+    padding: 20px 0;
+}
+
+header .logo {
+    width: 30px;
+    height: 30px;
+
+}
+
+.mobile {
+    display: none; /*remover o menu do mobile*/
+}
+
+nav.desktop ul {
+    list-style-type: none; /*tirar os círculos*/
+}
+
+nav.desktop li {
+    text-transform: uppercase; /*Tudo para maíusculo*/
+    display: inline-block; /*alinhar na horizontal*/
+    padding: 0 20px; /*espaçamento interno*/
+}
+
+nav.desktop a {
+    color: white;
+    /*Cor da fonte*/
+    text-decoration: none;
+    /*Retirar o sublinhado*/
+}
+
+/*Banner principal*/
+section.banner-principal {
+    width: 100%;
+    /*Largura de 100%*/
+    height: 600px;
+    /*Altura de 600px*/
+    position: relative;
+    /*Posição relativa*/
+}
+
+.banner-single{
+    z-index: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    
+}
+
+section.overlay {
+    z-index: 1;
+    /*Posição de prioridade na tela*/
+    left: 0;
+    /*Fixando na esquerda*/
+    top: 0;
+    /*Fixando no topo*/
+    width: 100%;
+    /*Largura de 100%*/
+    height: 100%;
+    /*Altura de 100%*/
+    background-color: rgba(20, 20, 20, 0.3);
+    /*Cor de fundo*/
+    position: absolute;
+    /*Posição absoluta*/
+}
+
+section.banner-principal form {
+    z-index: 2;
+    /*Posição de prioridade na tela*/
+    width: 98%;
+    max-width: 600px;
+    /*Largura máxima*/
+    position: absolute;
+    /*Posição absoluta*/
+    left: 50%;
+    /*50% a esquerda*/
+    top: 50%;
+    /*50% a cima*/
+    transform: translate(-50%, -50%);
+    /*Centralizar*/
+    -ms-transform: translate(-50%, -50%);
+    /*Centralizar*/
+}
+
+section.banner-principal form h2 {
+    color: white;
+    /*Cor da fonte*/
+    font-size: 32px;
+    /*Tamanho da fonte*/
+    text-align: center;
+    /*Alinhar no centro*/
+}
+
+section.banner-principal form input[type=email] {
+    width: 100%; /*Largura de 100%*/
+    height: 50px; /*Altura de 50px*/
+    margin-top: 10px;
+    background-color: white;
+    color: black;
+    font-size: 24px;
+    padding-left: 10px;
+    border: 1px solid green; /*Borda*/
+}
+
+section.banner-principal form input[type=submit] {
+    width: 100%; /*Largura de 100%*/
+    height: 50px; /*Altura de 50px*/
+    margin-top: 10px;
+    background-color: rgb(75, 221, 75);
+    color: white;
+    font-size: 24px;
+    cursor: pointer; /*Tipo do cursor do mouse*/
+}
+
+/*descricao-autor*/
+section.descricao-autor{
+    padding: 30px 0; /*Espaçamento interno cima e baixo*/
+}
+
+section.descricao-autor h2{
+    font-size: 32px; /*Tamanho da fonte*/
+}
+
+section.descricao-autor img{
+    width: 150px;
+    height: 150px;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 50%;
+}
+
+section.descricao-autor p{
+    margin-top: 10px; /*Espaçamento externo cima*/
+    font-size: 18px; /*Tamanho da fonte*/
+    text-align: justify; /*Alinhamento justificado*/
+}
+
+/*Especialidades*/
+section.especialidades {
+    text-align: center;
+    font-size: 18px;
+    padding: 20px 0;
+    background-color: rgb(75, 221, 75);
+}
+
+section.especialidades .title {
+    font-size: 40px;
+}
+
+.box-especialidades {
+    margin: 20px 0;
+}
+
+.box-especialidades h3 i {
+    font-size: 100px;
+}
+
+.box-especialidades p {
+    margin-top: 10px;
+}
+
+/*Extras*/
+section.extras {
+    padding: 20px 0;
+    background-color: rgb(214, 250, 214);
+}
+
+.depoimentos-container,
+.servicos-container {
+    padding: 10px 2%;
+}
+
+section.extras .title {
+    font-size: 32px;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+section.extras .depoimento-single {
+    padding: 10px 3px;
+    border-bottom: 2px solid black;
+}
+
+p.depoimentos-descricao {
+    font-size: 18px;
+}
+
+p.nome-autor {
+    color: red;
+    font-weight: bold;
+}
+
+.servicos ul {
+    margin: 10px 0;
+}
+
+.servicos li {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+
+/*Página 404*/
+section.erro-404{
+    padding: 100px;
+    text-align: center;
+    min-height: 500px;
+    font-size: 24px;
+}
+
+section.erro-404 i{
+    padding: 0 10px;
+}
+
+section.erro-404 h2{
+    border-bottom: 2px solid black;
+}
+
+section.erro-404 a{
+    color: rgb(75, 221, 75);
+}
+
+/*WhatsApp Button*/
+
+.btnWhatsApp{
+    z-index: 999;
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    bottom: 30px;
+    right: 30px;
+    background-color: rgb(75, 221, 75);
+    color: white;
+    border-radius: 30px;
+    text-align: center;
+    font-size: 35px;
+    box-shadow: 10px 10px 10px black;
+    animation-name: whatsApp;
+    animation-duration: 6s;
+    animation-iteration-count: 3;
+}
+
+@keyframes whatsApp{
+    from{background-color: rgb(75, 221, 75);}
+    to{background-color: black;}
+}
+
+/*Footer*/
+footer {
+    background-color: rgb(75, 221, 75);
+    padding: 10px;
+    text-align: center;
+    color: black;
+    font-weight: bold;
+}
+
+footer.fixed{
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+}
+
+/*Página Contato*/
+
+.contato-container{
+    display: block;
+    max-width: 800px;
+    margin: 30px auto;
+}
+
+.contato-container input[type="text"]{
+    width: 100%;
+    margin: 6px 0;
+    padding: 8px;
+    font-size: 18px;
+}
+
+.contato-container textarea{
+    width: 100%;
+    margin: 6px 0;
+    padding: 8px;
+    font-size: 18px;
+    min-height: 150px;
+    resize: vertical;
+}
+
+.contato-container input[type="submit"]{
+    width: 100%;
+    margin: 6px 0;
+    padding: 8px;
+    font-size: 18px;
+    background-color: rgb(75, 221, 75);
+}
+
+/*bullets*/
+.bullets{
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 10px;
+}
+
+.bullets span{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: white;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.bullets span.active-slider{
+    background-color: rgb(75, 221, 75);
+}
+
+.map iframe{
+    display: block;
+    margin: 20px auto;
+    width: 70%;
+    height: 600px;
+}
+
+/* Portal de Notícias */
+.header-noticias {
+    width: 100%;
+    padding: 40px 0;
+    background-color: rgb(117, 243, 117);
+    box-shadow: 5px 5px 10px rgb(75, 221, 75);
+}
+
+.header-noticias h2:nth-of-type(1) {
+    font-size: 42px;
+}
+
+.header-noticias h2 {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: normal;
+    border-radius: 10px;
+}
+
+section.container-portal { 
+    padding: 50px 0;
+}
+
+.sidebar {
+    float: left;
+    width: 22%;
+}
+
+.box-content-sidebar {
+    width: 100%;
+    background-color: rgb(75, 221, 75);
+    padding: 15px;
+    color: white;
+    box-shadow: 5px 5px 10px rgb(75, 221, 75);
+    margin-bottom: 30px;
+    border-radius: 10px;
+}
+
+.box-content-sidebar h3 {
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.box-content-sidebar input[type="text"],
+.box-content-sidebar select {
+    width: 100%;
+    height: 40px;
+    border: 1px solid black;
+    font-size: 18px;
+    padding-left: 8px;
+    margin-top: 10px;
+    box-shadow: 5px 5px 5px black;
+}
+
+.box-content-sidebar input[type="submit"] {
+    width: 100%;
+    height: 40px;
+    color: white;
+    background-color: black;
+    font-size: 18px;
+    margin-top: 10px;
+    cursor: pointer;
+    box-shadow: 5px 5px 5px black;
+}
+
+.conteudo-portal {
+    float: right;
+    width: 76%;
+    padding: 0 2%;
+    text-align: center;
+}
+
+.header-conteudo-portal {
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.header-conteudo-portal h2 {
+    font: 22px;
+    font-weight: normal;
+}
+
+/*@media screen -> Mobile*/
+@media screen and (max-width: 768px) {
+    img {
+        display: block;
+        /*Display na vertical*/
+        margin: 0 auto;
+        /*Centralizado*/
+        max-width: 600px;
+        /*Largura Máxima*/
+    }
+
+    .w33 {
+        width: 100%;
+    }
+
+    .w50 {
+        padding: 10px;
+        width: 100%;
+    }
+
+    nav.desktop {
+        display: none;
+        /*escondendo o menu desktop*/
+    }
+
+    nav.mobile {
+        display: block;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    nav.mobile ul {
+        margin-top: 10px;
+        z-index: 3;
+        position: absolute;
+        left: 0;
+        width: 100%;
+        background-color: black;
+        text-align: center;
+        display: none;
+    }
+
+    nav.mobile li {
+        display: block;
+        list-style-type: none;
+        width: 100%;
+        padding: 10px;
+        border-bottom: 1px solid white;
+        border-top: 1px solid white;
+    }
+
+    nav.mobile li a {
+        text-decoration: none;
+        color: white;
+        font-size: 22px;
+    }
+
+    .map iframe{
+        height: 400px;
+    }
+}
