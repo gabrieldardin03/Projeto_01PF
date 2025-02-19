@@ -52,7 +52,7 @@ $slides = $slides->fetchAll();
 <!--especialidades-->
 <section class="especialidades">
     <div class="center">
-        <h2 class="title">historia</h2>
+        <h2 class="title">SOBRE PAULA FREITAS</h2>
         <div class="w33 left box-especialidades">
             <h3><i class="<?php echo $infoSite['icone1']?>"></i></h3>
             <p><?php echo $infoSite['descricao1']?></p>
