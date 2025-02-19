@@ -53,7 +53,7 @@
 
             ?>
             <div class="box-single-conteudo">
-                <h2>Conheça as novidades do Esp...</h2>
+                <h2>Conheça as novidades de Paula freitas.</h2>
                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur, dolores eligendi totam amet harum
                     reiciendis voluptas reprehenderit cupiditate, aperiam nemo porro suscipit omnis dolore? Harum dolor
                     eveniet repellendus et vero?</p>

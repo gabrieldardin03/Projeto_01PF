@@ -68,7 +68,7 @@
         <!--form group-->
         <div class="form-group">
             <label for="conteudo">Conteúdo: </label>
-            <textarea class="tinymce" name="conteuo" id=""><?php recoverPost('conteudo');?></textarea>
+            <textarea class="tinymce" name="conteudo" id=""><?php recoverPost('conteudo');?></textarea>
         </div>
         <!--form group-->
         <div class="form-group">
