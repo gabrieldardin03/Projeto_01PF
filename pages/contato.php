@@ -20,8 +20,9 @@
 
 <!--Manipular no CSS-->
 <div class="map">
-    <iframe
-        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14316.10258719256!2d-51.0488095!3d-26.2283562!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94e6602a2f792417%3A0x260a3f120bc90789!2sIFPR%20-%20Campus%20Uni%C3%A3o%20da%20Vit%C3%B3ria!5e0!3m2!1spt-BR!2sbr!4v1728521649544!5m2!1spt-BR!2sbr"
-        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"></iframe>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14318.407128778308!2d-50.94516633151815!3d-26.209629331594407!2m3!1f0!2f0!3f0!3
+    m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94e6f5e07d7116ed%3A0xa8d7501a8599999d!2sPaula%20Freitas%2C%20PR%2C%2084630-000!5e0!3m2!1spt-BR!2sbr!4v174001
+    1727607!5m2!1spt-BR!2sbr" 
+    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </iframe>
 </div>

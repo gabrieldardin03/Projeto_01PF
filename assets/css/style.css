@@ -463,6 +463,56 @@ section.container-portal {
     font-weight: normal;
 }
 
+.header-conteudo-portal h2>span{
+    border-bottom: 5px solid black;
+    font-weight: bold;
+}
+
+.box-single-conteudo{
+    float: left;
+    width: 31%;
+    background-color: black;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 5px 5px 5px black;
+    color: white;
+    border-radius: 10px;
+}
+
+.box-single-conteudo h2{
+    padding-bottom: 20px;
+}
+
+.box-single-conteudo a{
+    color: rgb(117, 243, 117);
+    text-decoration: none;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.paginator{
+    text-align: center;
+}
+
+.paginator a {
+    display: inline-block;
+    padding: 10px 2px;
+    margin: 10px;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    text-decoration: none;
+}
+
+.paginator a.active-page{
+    background-color: black;
+    color: white;
+}
+
+
+
+
 /*@media screen -> Mobile*/
 @media screen and (max-width: 768px) {
     img {

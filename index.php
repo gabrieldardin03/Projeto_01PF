@@ -102,8 +102,13 @@ $infoSite = $infoSite->fetch();
         include('pages/' . $url . '.php');
     } else {
         if ($url != 'depoimentos' && $url != 'servicos') {
-            $pagina404 = true;
-            include('pages/404.php');
+            $urlPar = explode('/',url)[0];
+            if($urlPar != 'noticias'){
+                $pagina404 = true;
+                include('pages/404.php');
+            }else{
+                include('pages/noticias.php');
+            }
         } else {
             include('pages/home.php');
         }

@@ -9,7 +9,7 @@
 
 $paginaAtual = isset($_GET['pagina']) ? (int) $_GET['pagina'] : 1;
 $porPagina = 4;
-$depoimentos = Painel::getAll('tb_admin.servicos', ($paginaAtual - 1) * $porPagina, $porPagina);
+$servicos = Painel::getAll('tb_admin.servicos', ($paginaAtual - 1) * $porPagina, $porPagina);
 ?>
 
 <div class="box-content">
