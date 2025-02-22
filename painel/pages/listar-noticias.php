@@ -39,7 +39,7 @@ $noticias = Painel::getAll('tb_admin.noticias', ($paginaAtual - 1) * $porPagina,
             <tr>
                 <td><?php echo $value['titulo']; ?></td>
                 <td><?php echo $nomeCategoria ?></td>
-                <td><img style="width:60px; height=60px;" ;
+                <td><img style="width:60px; height :60px;" ;
                         src="<?php echo INCLUDE_PATH_PAINEL;?>uploads/<?php echo $value['capa'];?>"></td>
                 <td><a class="edit"
                         href="<?php echo INCLUDE_PATH_PAINEL ?>editar-noticias?id=<?php echo $value['id']; ?>"><i
@@ -60,16 +60,17 @@ $noticias = Painel::getAll('tb_admin.noticias', ($paginaAtual - 1) * $porPagina,
     <!--wraper table-->
 
     <div class="paginacao">
-        <?php 
-            $totalPaginas = ceil(count(Painel::getAll('tb_admin.noticias')) / $porPagina);
-            for ($i = 1; $i <= $totalPaginas ; $i++){
-                if($i == $paginaAtual)
-                    echo '<a class="page-selected" href="' . INCLUDE_PATH_PAINEL . 'listar-noticias?pagina=' . $i . '">' . $i . '</a';
-                else
-                    echo '<a href="' . INCLUDE_PATH_PAINEL . 'listar-noticias?pagina=' . $i . '">' . $i . '</a>';
+    <?php 
+        $totalPaginas = ceil(count(Painel::getAll('tb_admin.noticias')) / $porPagina);
+        for ($i = 1; $i <= $totalPaginas ; $i++) {
+            if ($i == $paginaAtual) {
+                echo '<a class="page-selected" href="' . INCLUDE_PATH_PAINEL . 'listar-noticias?pagina=' . $i . '">' . $i . '</a>';
+            } else {
+                echo '<a href="' . INCLUDE_PATH_PAINEL . 'listar-noticias?pagina=' . $i . '">' . $i . '</a>';
             }
-        ?>
-    </div>
+        }
+    ?>
+</div>
     <!--paginacao-->
 </div>
 <!--box content-->

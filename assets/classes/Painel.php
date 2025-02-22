@@ -102,7 +102,8 @@ class Painel {
     }
 
     // Faz upload de um arquivo
-    public static function uploadFile($file) {
+    public static function uploadFile($file) 
+    {
         $formatoArquivo = explode('.', $file['name']);
         $nomeImagem = uniqid() . '.' . $formatoArquivo[count($formatoArquivo) - 1];
         if (move_uploaded_file($file['tmp_name'], BASE_DIR_PAINEL . 'uploads/' . $nomeImagem))
@@ -184,8 +185,8 @@ class Painel {
     }
 
     // Obtém um item específico de uma tabela
-    public static function get($tabela, $query = '', $arr = '') {
-        if ($query != false) {
+    public static function get($tabela, $query = '', $arr = null) {
+        if ($query != '') {
             $sql = MySql::conectar()->prepare("SELECT * FROM `$tabela` WHERE $query");
             $sql->execute($arr);
         } else {
