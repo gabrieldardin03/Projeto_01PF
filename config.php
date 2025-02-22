@@ -5,7 +5,7 @@
 
     define('NOME_EMPRESA', 'IFPR'); // Nome da Empresa
 
-    define('INCLUDE_PATH', 'http://localhost/Projeto_01/'); // Definir o domínio do site
+    define('INCLUDE_PATH', 'http://localhost/Projeto_01PF/'); // Definir o domínio do site
     
     define('INCLUDE_PATH_PAINEL', INCLUDE_PATH.'painel/'); // Definir a URL do painel
 
