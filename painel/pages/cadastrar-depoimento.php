@@ -1,3 +1,4 @@
+
 <div class="box-content">
     <h2><i class="fas fa-plus"></i> Adicionar Depoimento</h2>
 
@@ -13,13 +14,14 @@
         ?>
         <div class="form-group">
             <label for="nome">Nome: </label>
-            <input type="text" name="nome" required>
+            <input type="text" name="nome" value="<?php recoverPost('nome');?>" required>
         </div>
         <!--form group-->
         <div class="form-group">
-            <label for="nome">Depoimento: </label>
-            <textarea name="depoimento" required></textarea>
+            <label for="depoimento">Depoimento: </label>
+            <textarea class="tinymce" name="depoimento" id=""><?php recoverPost('depoimento');?></textarea>
         </div>
+        <!--form group-->
         <!--form group-->
         <div class="form-group">
             <label for="nome">Data: </label>

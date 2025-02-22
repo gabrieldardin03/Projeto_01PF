@@ -77,4 +77,17 @@
         <div class="clear"></div>
     </div>
     <!--center-->
+
+
+<?php foreach($noticias as $key => $value ){
+    $sql = MySql::conectar()->prepare("SELECT 'slug' FROM   'tb_admin.categorias' WHERE id=?");
+    $sql ->execute(array($value['categoria_id']));
+    $categoriaNome = $sql->fetch()['slug'];
+?>
+<div class="box-single-conteudo">
+<h2><?php echo $value['titulo']; ?></h2>
+<p><?php echo substr(strip_tags($value['conteudo']),0,0,400).'...' ;?></p>
+</div><!---box-single-conteudo-->
+<?php } ?>
+<
 </section>
