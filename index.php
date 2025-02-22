@@ -43,7 +43,7 @@ $infoSite = $infoSite->fetch();
 </head>
 
 <body>
-
+<base base="<?php echo INCLUDE_PATH?>" />
 
     <?php
     //echo $_GET["url"]; printar na tela a url
@@ -102,7 +102,7 @@ $infoSite = $infoSite->fetch();
         include('pages/' . $url . '.php');
     } else {
         if ($url != 'depoimentos' && $url != 'servicos') {
-            $urlPar = explode('/',url)[0];
+            $urlPar = explode('/',$url)[0];
             if($urlPar != 'noticias'){
                 $pagina404 = true;
                 include('pages/404.php');
@@ -145,6 +145,11 @@ $infoSite = $infoSite->fetch();
     <script src="<?php echo INCLUDE_PATH; ?>assets/js/especialidades.js"></script>
     <?php }?>
 
+
+    <?php if($url[0]== 'noticias'){ ?>
+        <script src="<?php echo INCLUDE_PATH; ?>asset/js/filtro.js"></script>
+<?php } ?>
+    
 </body>
 
 </html>
