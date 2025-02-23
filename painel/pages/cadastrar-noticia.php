@@ -32,7 +32,7 @@
                                     'slug'=>$slug,
                                     'nomeTabela'=>'tb_admin.noticias'];
                             if(Painel::insert($arr)){
-                                Painel::redirect(INCLUDE_PATH .'cadastrar-noticias?sucesso');
+                                Painel::redirect(INCLUDE_PATH_PAINEL .'cadastrar-noticias?sucesso');
                             }
                         }else{
                             Painel::messageToUser('erro','Já existe uma notícia com esse nome!');
