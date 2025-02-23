@@ -7,7 +7,7 @@ if (!isset($url[2])){
     <section class="header-noticias">
         <div class="center">
             <h2><i class="fa-solid fa-bell"></i></h2>
-            <h2>Acompanhe as últimas notícias do portal</h2>
+            <h2>Acompanhe as últimas notícias da Radio Peão</h2>
         </div>
         <!--center-->
     </section>
@@ -29,17 +29,18 @@ if (!isset($url[2])){
                     <form action="">
                         <select name="categoria" id="">
                             <option value="" selected="">Todas as categorias </option> 
+
                            <?php 
                            $categorias = MySql::conectar()->prepare("SELECT * 
                                                                     FROM 'tb_admin.categorias'
-                                                                      ORDER BY order_id DESC");
+                                                                    ORDER BY order_id DESC");
                          $categoria->execute();
                          $categoria = $categoria->fetchAll();  
                            
                          foreach($categorias as $key => $value){
                         ?>
-                            <option <?php if($value['slug']== @$url[1])echo 'selected'; ?>
-                                value="<?php echo $value ['slug']?>">
+                            <option <?php if($value['slug'] == @$url[1])echo 'selected'; ?>
+                                value="<?php echo $value ['slug'] ?>">
                                 <?php echo $value['nome'];?></option>
                          <?php } ?>
                         </select>
@@ -81,14 +82,17 @@ if (!isset($url[2])){
                     $query.="WHERE categoria_id = $categoria[id]";
                 }
 
-                if (isset($_POST['parametro'])){
+                if(isset($_POST['parametro'])){
                     $parametro = $_POST['parametro'];
-                    if(strstr($query,'WHERE')!== false){
-                        $query .="AND titulo LIKE '%$parametro%'";
+                    if(strstr($query, 'WHERE')!== false){
+                        $query .=" AND $titulo LIKE '%$parametro%'";
                     }else{
                         $query .="WHERE titulo LIKE '%$parametro%'";
                     }
+
                 }
+
+
                 if(!isset($_POST['parametro'])){
                     if (isset($_GET['pagina'])){
                         $pagina = (int)$_GET['pagina'];
@@ -101,17 +105,13 @@ if (!isset($url[2])){
                 }else{
                     $query .= "ORDER BY order_id DESC LIMIT 0, $porPagina";
                     }
-                
-
+                    
                 $noticias = MySql::conectar()->prepare($query);
                 $noticias->execute();
                 $noticias = $noticias->fetchAll();
                  ?>    
 
-                </div>
-                <!--header-conteudo-portal-->
-
-
+                </div><!--header-conteudo-portal-->
                 <?php foreach ($noticias as $key => $value) {
                     $sql = MySql::conectar()->prepare("SELECT 'slug'  FROM 'tb_admin.categorias' WHERE id=?");
                     $sql->execute(array($value['categoria_id']));
@@ -123,10 +123,9 @@ if (!isset($url[2])){
                     <a href="<?php echo INCLUDE_PATH; ?>noticias/
                     <?php echo $categoriaNome;?>/
                     <?php echo $value['slug'];?>">Leia mais </a>
-                </div>
-                <!--box-single-conteudo-->
+                </div> <!--box-single-conteudo-->
                 <?php } ?>
-            </div>
+            
 
             <?php
             $query = "SELECT * FROM 'tb_admin.moticias' ";
@@ -137,6 +136,7 @@ if (!isset($url[2])){
                     $totalPaginas->execute();
                     $totalPaginas = ceil($totalPaginas->rowCount() / $porPagina);
             ?>
+            </div>
             <!--conteudo-portal-->
             <div class="clear"></div>
             <div class="conteudo-portal">
@@ -169,7 +169,7 @@ if (!isset($url[2])){
     
     
     <?php foreach($noticias as $key => $value ){
-        $sql = MySql::conectar()->prepare("SELECT 'slug' FROM   'tb_admin.categorias' WHERE id=?");
+        $sql = MySql::conectar()->prepare("SELECT 'slug' FROM 'tb_admin.categorias' WHERE id=?");
         $sql ->execute(array($value['categoria_id']));
         $categoriaNome = $sql->fetch()['slug'];
     ?>

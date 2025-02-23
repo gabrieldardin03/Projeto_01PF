@@ -32,7 +32,7 @@
                                     'slug'=>$slug,
                                     'nomeTabela'=>'tb_admin.noticias'];
                             if(Painel::insert($arr)){
-                                Painel::redirect(INCLUDE_PATH_PAINEL . 'cadastrar-noticia?sucesso');
+                                Painel::redirect(INCLUDE_PATH .'cadastrar-noticias?sucesso');
                             }
                         }else{
                             Painel::messageToUser('erro','Já existe uma notícia com esse nome!');
@@ -42,10 +42,10 @@
                     }
                 }
             }
-
-            if (isset($_GET['sucesso'])) {
-                Painel::messageToUser('sucesso', 'Cadastro realizado com sucesso!');
+            if (isset($_GET['sucesso'])){
+                Painel::messageToUser('sucesso', 'Cadastro Realizado com sucesso');
             }
+        
         ?>
 
         <div class="form-group">

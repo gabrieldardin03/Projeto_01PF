@@ -30,7 +30,8 @@
                         Painel::deleteFile($imagem_atual);
                         $imagem = Painel::uploadFile($imagem);
                         $slug = Painel::generateSlug($titulo);
-                        $arr = ['categoria_id'=>$_POST['categoria_id'], 'titulo'=>$titulo, 'conteudo'=>$conteudo, 'capa'=>$imagem, 'slug'=>$slug, 'id'=>$id, 'nomeTabela'=>'tb_admin.noticias'];
+                        $arr = ['categoria_id'=>$_POST['categoria_id'], 'titulo'=>$titulo, 'conteudo'=>$conteudo,
+                         'capa'=>$imagem, 'slug'=>$slug, 'id'=>$id, 'nomeTabela'=>'tb_admin.noticias'];
                         Painel::update($arr);
                         $noticia = Painel::get('tb_admin.noticias', 'id = ?', array($id));
                         Painel::messageToUser('sucesso', 'Notícia atualizada com a imagem!');
@@ -40,7 +41,9 @@
                 }else{
                     //O usuário não selecionou a imagem
                     $imagem = $imagem_atual;
-                    $arr = ['categoria_id'=>$_POST['categoria_id'], 'titulo'=>$titulo, 'conteudo'=>$conteudo, 'capa'=>$imagem, 'slug'=>$slug, 'id'=>$id, 'nomeTabela'=>'tb_admin.noticias'];
+                    $slug = Painel::generateSlug($titulo);
+                    $arr = ['categoria_id'=>$_POST['categoria_id'], 'titulo'=>$titulo, 'conteudo'=>$conteudo, 
+                    'capa'=>$imagem, 'slug'=>$slug, 'id'=>$id, 'nomeTabela'=>'tb_admin.noticias'];
                     Painel::update($arr);
                     $noticia = Painel::get('tb_admin.noticias', 'id = ?', array($id));
                     Painel::messageToUser('sucesso', 'Notícia atualizada!');
