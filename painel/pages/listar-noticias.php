@@ -25,6 +25,7 @@ $noticias = Painel::getAll('tb_admin.noticias', ($paginaAtual - 1) * $porPagina,
         <table>
             <tr>
                 <td>Título</td>
+                <td>Categoria</td>
                 <td>Imagem</td>
                 <td>Editar</td>
                 <td>Excluir</td>

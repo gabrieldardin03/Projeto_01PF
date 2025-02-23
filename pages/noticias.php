@@ -27,21 +27,21 @@ if (!isset($url[2])){
                 <div class="box-content-sidebar">
                     <h3><i class="fas fa-list"></i> Selecione a Categoria: </h3>
                     <form action="">
-                        <select name="categoria" id="">
+                        <select name="categorias" id="">
                             <option value="" selected="">Todas as categorias </option> 
 
                            <?php 
-                           $categorias = MySql::conectar()->prepare("SELECT * 
-                                                                    FROM 'tb_admin.categorias'
-                                                                    ORDER BY order_id DESC");
-                         $categoria->execute();
-                         $categoria = $categoria->fetchAll();  
-                           
+                         $categorias = MySql::conectar()->prepare("SELECT * 
+                         FROM `tb_admin.categorias`
+                         ORDER BY order_id DESC");
+                                                $categorias->execute();
+                                                $categorias = $categorias->fetchAll();
+                                                                        
                          foreach($categorias as $key => $value){
                         ?>
                             <option <?php if($value['slug'] == @$url[1])echo 'selected'; ?>
                                 value="<?php echo $value ['slug'] ?>">
-                                <?php echo $value['nome'];?></option>
+                                <?php echo $value['nome']; ?></option>
                          <?php } ?>
                         </select>
                     </form>
@@ -78,7 +78,7 @@ if (!isset($url[2])){
                 }
 
                 $query = "SELECT *FROM 'tb_admin.noticias' ";
-                if($categoria['nome'] != ''){
+                if(@$categoria['nome'] != ''){
                     $query.="WHERE categoria_id = $categoria[id]";
                 }
 
@@ -113,13 +113,13 @@ if (!isset($url[2])){
 
                 </div><!--header-conteudo-portal-->
                 <?php foreach ($noticias as $key => $value) {
-                    $sql = MySql::conectar()->prepare("SELECT 'slug'  FROM 'tb_admin.categorias' WHERE id=?");
+                    $sql = MySql::conectar()->prepare("SELECT 'slug'  FROM ´tb_admin.categorias´ WHERE id=?");
                     $sql->execute(array($value['categoria_id']));
                     $categoriaNome = $sql ->fetch()['slug'];
                 ?>
                 <div class="box-single-conteudo">
                     <h2><?php echo $value['titulo'];?></h2>
-                    <p><?php echo substr(strip_tags($value['conteudo']),0,0,400).'...';?></p>
+                    <p><?php echo substr(strip_tags($value['conteudo']),0,400).'...';?></p>
                     <a href="<?php echo INCLUDE_PATH; ?>noticias/
                     <?php echo $categoriaNome;?>/
                     <?php echo $value['slug'];?>">Leia mais </a>
@@ -128,7 +128,7 @@ if (!isset($url[2])){
             
 
             <?php
-            $query = "SELECT * FROM 'tb_admin.moticias' ";
+            $query = "SELECT * FROM 'tb_admin.noticias' ";
                     if(@$categoria['nome'] !=''){
                         $query.="WHERE categoria_id = $categoria[id]";
                     }
@@ -144,7 +144,7 @@ if (!isset($url[2])){
                    <?php 
                    if(!isset($_POST['parametro'])){
                     for ($i = 1 ; $i <= $totalPaginas;$i++){
-                        @$categoriaStr = ($categoria['nome'] !='')?'/' . $categoria['slug']:'';
+                        @$categoriaStr = ($categoria['nome'] !='') ? '/' . $categoria['slug']:'';
 
                         if(@$pagina == $i){
                             echo'<a class="page-selected" href"' . INCLUDE_PATH_PAINEL . 'noticias'. $categoriaStr ;
@@ -168,14 +168,14 @@ if (!isset($url[2])){
     } ?>
     
     
-    <?php foreach($noticias as $key => $value ){
+    <?php foreach($noticias as $key => $value ) {
         $sql = MySql::conectar()->prepare("SELECT 'slug' FROM 'tb_admin.categorias' WHERE id=?");
         $sql ->execute(array($value['categoria_id']));
         $categoriaNome = $sql->fetch()['slug'];
     ?>
     <div class="box-single-conteudo">
     <h2><?php echo $value['titulo']; ?></h2>
-    <p><?php echo substr(strip_tags($value['conteudo']),0,0,400).'...' ;?></p>
+    <p><?php echo substr(strip_tags($value['conteudo']),0,400).'...' ;?></p>
     </div><!---box-single-conteudo-->
     <?php } ?>
 
