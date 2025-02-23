@@ -65,7 +65,7 @@ $infoSite = $infoSite->fetch();
         <div class="center">
             <div class="logo left">
                 <a href="<?php echo INCLUDE_PATH;?>">
-                    <img src="<?php echo INCLUDE_PATH;?>ifpr_logo.png" alt="IFPR">
+                    <img src="<?php echo INCLUDE_PATH;?>bandeira_logo.png" alt="IFPR">
                 </a>
             </div>
             <nav class="desktop right">

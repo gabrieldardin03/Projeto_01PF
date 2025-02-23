@@ -53,7 +53,7 @@ img {
 
 /*header*/
 header {
-    background-color: rgb(75, 221, 75);
+    background-color: rgb(168, 7, 7);
     padding: 20px 0;
 }
 
@@ -165,7 +165,7 @@ section.banner-principal form input[type=submit] {
     width: 100%; /*Largura de 100%*/
     height: 50px; /*Altura de 50px*/
     margin-top: 10px;
-    background-color: rgb(75, 221, 75);
+    background-color: rgb(55, 0, 255);
     color: white;
     font-size: 24px;
     cursor: pointer; /*Tipo do cursor do mouse*/
@@ -199,7 +199,7 @@ section.especialidades {
     text-align: center;
     font-size: 18px;
     padding: 20px 0;
-    background-color: rgb(75, 221, 75);
+    background-color: rgb(38, 0, 255);
 }
 
 section.especialidades .title {
@@ -306,7 +306,7 @@ section.erro-404 a{
 
 /*Footer*/
 footer {
-    background-color: rgb(75, 221, 75);
+    background-color: rgb(8, 32, 252);
     padding: 10px;
     text-align: center;
     color: black;
@@ -348,7 +348,7 @@ footer.fixed{
     margin: 6px 0;
     padding: 8px;
     font-size: 18px;
-    background-color: rgb(75, 221, 75);
+    background-color: rgb(4, 0, 255);
 }
 
 /*bullets*/
@@ -371,7 +371,7 @@ footer.fixed{
 }
 
 .bullets span.active-slider{
-    background-color: rgb(75, 221, 75);
+    background-color: rgb(2, 6, 255);
 }
 
 .map iframe{
@@ -385,8 +385,8 @@ footer.fixed{
 .header-noticias {
     width: 100%;
     padding: 40px 0;
-    background-color: rgb(117, 243, 117);
-    box-shadow: 5px 5px 10px rgb(75, 221, 75);
+    background-color: rgb(17, 0, 255);
+    box-shadow: 5px 5px 10px rgb(65, 1, 241);
 }
 
 .header-noticias h2:nth-of-type(1) {
@@ -411,10 +411,10 @@ section.container-portal {
 
 .box-content-sidebar {
     width: 100%;
-    background-color: rgb(75, 221, 75);
+    background-color: rgb(13, 9, 248);
     padding: 15px;
     color: white;
-    box-shadow: 5px 5px 10px rgb(75, 221, 75);
+    box-shadow: 5px 5px 10px rgb(17, 0, 255);
     margin-bottom: 30px;
     border-radius: 10px;
 }
