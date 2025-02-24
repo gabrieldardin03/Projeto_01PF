@@ -15,7 +15,7 @@ $infoSite = $infoSite->fetch();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!--SFO = Search Engine Optimization-->
+    <!--SEO = Search Engine Optimization-->
     <meta name="description" content="Descrição do site">
     <meta name="keywords" content="Palavra-chave 1, 2, 3, etc">
 
@@ -46,9 +46,7 @@ $infoSite = $infoSite->fetch();
 <base base="<?php echo INCLUDE_PATH?>" />
 
     <?php
-    //echo $_GET["url"]; printar na tela a url
-
-    // Obtendo a url se exister ou home
+    // Obtendo a url se existir ou home
     $url = isset($_GET['url']) ? $_GET['url'] : 'home';
     switch ($url) {
         case 'depoimentos':
@@ -102,11 +100,11 @@ $infoSite = $infoSite->fetch();
         include('pages/' . $url . '.php');
     } else {
         if ($url != 'depoimentos' && $url != 'servicos') {
-            $urlPar = explode('/',$url)[0];
-            if($urlPar != 'noticias'){
+            $urlPar = explode('/', $url)[0];
+            if ($urlPar != 'noticias') {
                 $pagina404 = true;
                 include('pages/404.php');
-            }else{
+            } else {
                 include('pages/noticias.php');
             }
         } else {
@@ -141,14 +139,13 @@ $infoSite = $infoSite->fetch();
     </a>
     <?php } ?>
 
-    <?php if($url == 'home' || $url == ''){ ?>
+    <?php if ($url == 'home' || $url == '') { ?>
     <script src="<?php echo INCLUDE_PATH; ?>assets/js/especialidades.js"></script>
-    <?php }?>
+    <?php } ?>
 
-
-    <?php if($url[0]== 'noticias'){ ?>
+    <?php if ($url[0] == 'noticias') { ?>
         <script src="<?php echo INCLUDE_PATH; ?>asset/js/filtro.js"></script>
-<?php } ?>
+    <?php } ?>
     
 </body>
 
