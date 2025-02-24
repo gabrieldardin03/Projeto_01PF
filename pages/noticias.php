@@ -35,16 +35,15 @@ if (!isset($url[2])) {
 
                 <div class="box-content-sidebar">
                     <h3><i class="fas fa-list"></i> Selecione a Categoria: </h3>
-                    <form method="get" action="">
-                        <select name="categoria" onchange="this.form.submit()">
+                    <form action="">
+                        <select name="categorias" id="">
                             <option value="" selected>Todas as categorias</option>
                             <?php
                             $categorias = MySql::conectar()->prepare("SELECT * FROM `tb_admin.categorias` ORDER BY order_id DESC");
                             $categorias->execute();
                             $categorias = $categorias->fetchAll();
                             foreach ($categorias as $value) {
-                                $selected = (@$_GET['categoria'] == $value['slug']) ? 'selected' : '';
-                                echo '<option value="' . htmlspecialchars($value['slug'], ENT_QUOTES, 'UTF-8') . '" ' . $selected . '>' . htmlspecialchars($value['nome'], ENT_QUOTES, 'UTF-8') . '</option>';
+                                echo '<option value="' . htmlspecialchars($value['slug'], ENT_QUOTES, 'UTF-8') . '" ' . ($value['slug'] == @$url[1] ? 'selected' : '') . '>' . htmlspecialchars($value['nome'], ENT_QUOTES, 'UTF-8') . '</option>';
                             }
                             ?>
                         </select>
@@ -56,24 +55,16 @@ if (!isset($url[2])) {
                 <div class="header-conteudo-portal">
                     <?php
                     if (!isset($_POST['busca'])) {
-                        if (isset($_GET['categoria']) && !empty($_GET['categoria'])) {
-                            $categoria = Painel::get('tb_admin.categorias', 'slug = ?', array($_GET['categoria']));
-                            echo '<h2>Visualizando Posts em <span>' . htmlspecialchars($categoria['nome'], ENT_QUOTES, 'UTF-8') . '</span></h2>';
-                        } else {
-                            echo '<h2>Visualizando Todos os Posts</h2>';
-                        }
+                        echo '<h2>Visualizando Todos os Posts</h2>';
                     } else {
                         echo '<h2><i class="fa fa-check"></i> Resultados para: ' . htmlspecialchars($_POST['busca'], ENT_QUOTES, 'UTF-8') . '</h2>';
                     }
 
                     // Consulta para buscar notícias
                     $query = "SELECT * FROM `tb_admin.noticias`";
-                    if (isset($_GET['categoria']) && !empty($_GET['categoria'])) {
-                        $categoriaSlug = htmlspecialchars($_GET['categoria'], ENT_QUOTES, 'UTF-8');
-                        $categoria = Painel::get('tb_admin.categorias', 'slug = ?', array($categoriaSlug));
-                        if ($categoria) {
-                            $query .= " WHERE categoria_id = " . $categoria['id'];
-                        }
+                    if (isset($_POST['busca'])) {
+                        $busca = htmlspecialchars($_POST['busca'], ENT_QUOTES, 'UTF-8');
+                        $query .= " WHERE titulo LIKE '%$busca%'";
                     }
                     $query .= " ORDER BY order_id DESC";
 
@@ -126,7 +117,3 @@ if (!isset($url[2])) {
     include('noticias-single.php');
 }
 ?>
-
-<footer>
-    <p>Todos os direitos reservados &copy; <?php echo date('Y'); ?> Radio Peão</p>
-</footer>
