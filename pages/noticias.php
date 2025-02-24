@@ -35,15 +35,16 @@ if (!isset($url[2])) {
 
                 <div class="box-content-sidebar">
                     <h3><i class="fas fa-list"></i> Selecione a Categoria: </h3>
-                    <form action="">
-                        <select name="categorias" id="">
+                    <form method="get" action="">
+                        <select name="categoria" onchange="this.form.submit()">
                             <option value="" selected>Todas as categorias</option>
                             <?php
                             $categorias = MySql::conectar()->prepare("SELECT * FROM `tb_admin.categorias` ORDER BY order_id DESC");
                             $categorias->execute();
                             $categorias = $categorias->fetchAll();
                             foreach ($categorias as $value) {
-                                echo '<option value="' . htmlspecialchars($value['slug'], ENT_QUOTES, 'UTF-8') . '" ' . ($value['slug'] == @$url[1] ? 'selected' : '') . '>' . htmlspecialchars($value['nome'], ENT_QUOTES, 'UTF-8') . '</option>';
+                                $selected = (@$_GET['categoria'] == $value['slug']) ? 'selected' : '';
+                                echo '<option value="' . htmlspecialchars($value['slug'], ENT_QUOTES, 'UTF-8') . '" ' . $selected . '>' . htmlspecialchars($value['nome'], ENT_QUOTES, 'UTF-8') . '</option>';
                             }
                             ?>
                         </select>
@@ -54,18 +55,47 @@ if (!isset($url[2])) {
             <div class="conteudo-portal">
                 <div class="header-conteudo-portal">
                     <?php
-                    if (!isset($_POST['busca'])) {
-                        echo '<h2>Visualizando Todos os Posts</h2>';
+                    // Verifica se uma categoria foi selecionada
+                    $categoriaSelecionada = null;
+                    if (isset($_GET['categoria']) && !empty($_GET['categoria'])) {
+                        $categoriaSlug = htmlspecialchars($_GET['categoria'], ENT_QUOTES, 'UTF-8');
+                        $categoriaSelecionada = Painel::get('tb_admin.categorias', 'slug = ?', array($categoriaSlug));
+                        if ($categoriaSelecionada) {
+                            echo '<h2>Visualizando Posts em <span>' . htmlspecialchars($categoriaSelecionada['nome'], ENT_QUOTES, 'UTF-8') . '</span></h2>';
+                        }
                     } else {
-                        echo '<h2><i class="fa fa-check"></i> Resultados para: ' . htmlspecialchars($_POST['busca'], ENT_QUOTES, 'UTF-8') . '</h2>';
+                        echo '<h2>Visualizando Todos os Posts</h2>';
+                    }
+
+                    // Verifica se o formulário de pesquisa foi enviado
+                    $busca = '';
+                    if (isset($_POST['acao']) && isset($_POST['busca'])) {
+                        $busca = htmlspecialchars($_POST['busca'], ENT_QUOTES, 'UTF-8');
+                        echo '<h2><i class="fa fa-check"></i> Resultados para: ' . $busca . '</h2>';
                     }
 
                     // Consulta para buscar notícias
                     $query = "SELECT * FROM `tb_admin.noticias`";
-                    if (isset($_POST['busca'])) {
-                        $busca = htmlspecialchars($_POST['busca'], ENT_QUOTES, 'UTF-8');
-                        $query .= " WHERE titulo LIKE '%$busca%'";
+                    $where = [];
+                    $params = [];
+
+                    // Filtro por categoria
+                    if ($categoriaSelecionada) {
+                        $where[] = "categoria_id = ?";
+                        $params[] = $categoriaSelecionada['id'];
                     }
+
+                    // Filtro por pesquisa
+                    if (!empty($busca)) {
+                        $where[] = "titulo LIKE ?";
+                        $params[] = "%$busca%";
+                    }
+
+                    // Combina os filtros na query
+                    if (!empty($where)) {
+                        $query .= " WHERE " . implode(" AND ", $where);
+                    }
+
                     $query .= " ORDER BY order_id DESC";
 
                     // Paginação
@@ -78,7 +108,7 @@ if (!isset($url[2])) {
                     }
 
                     $noticias = MySql::conectar()->prepare($query);
-                    $noticias->execute();
+                    $noticias->execute($params);
                     $noticias = $noticias->fetchAll();
 
                     if (empty($noticias)) {
@@ -117,3 +147,7 @@ if (!isset($url[2])) {
     include('noticias-single.php');
 }
 ?>
+
+<footer <?php if (isset($pagina404) && $pagina404 == true) echo 'class="fixed"'; ?>>
+    <p>Todos os direitos reservados &copy; <?php echo date('Y'); ?> Radio Peão</p>
+</footer>
