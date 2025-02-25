@@ -148,6 +148,3 @@ if (!isset($url[2])) {
 }
 ?>
 
-<footer <?php if (isset($pagina404) && $pagina404 == true) echo 'class="fixed"'; ?>>
-    <p>Todos os direitos reservados &copy; <?php echo date('Y'); ?> Radio Peão</p>
-</footer>

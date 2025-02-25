@@ -17,7 +17,7 @@ $slides = $slides->fetchAll();
     <!--Overlay-->
     <div class="center">
         <form action="">
-            <h2>digite seu melhorEmail para receber as notificações?</h2>
+            <h2>digite seu melhor Email para receber as notificações?</h2>
             <input type="email" name="email" id="email" required>
             <input type="submit" name="enviar" value="Enviar">
         </form>
@@ -35,7 +35,7 @@ $slides = $slides->fetchAll();
     <div class="center">
         <div class="w50 left">
             <h2 class="text-center">
-                <img src="<?php echo INCLUDE_PATH; ?>assets/img/local-trabalho.jpg">
+                <img src="<?php echo INCLUDE_PATH; ?>assets/img/Paulafreitas.png">
                 <?php echo $infoSite['nome_autor']; ?>
             </h2>
             <h3 class="text-center">
@@ -76,7 +76,7 @@ $slides = $slides->fetchAll();
 <section class="extras">
     <div class="center">
         <div id="depoimentos" class="w50 left depoimentos-container">
-            <h2 class="title">Depoimentos</h2>
+            <h2 class="title">Depoimentos dos moradores</h2>
             <?php 
                 $sql = MySql::conectar()->prepare("SELECT * FROM `tb_admin.depoimentos` ORDER BY order_id DESC LIMIT 3");
                 $sql->execute();
